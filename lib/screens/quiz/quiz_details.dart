@@ -1,9 +1,10 @@
-import 'package:angular_guru/screens/quiz/quiz.dart';
 import 'package:flutter/material.dart';
 
 class QuizDetails extends StatefulWidget {
   @override
   _QuizDetailsState createState() => _QuizDetailsState();
+  final dynamic quiz;
+  QuizDetails({this.quiz});
 }
 
 class _QuizDetailsState extends State<QuizDetails> {
@@ -19,7 +20,7 @@ class _QuizDetailsState extends State<QuizDetails> {
               SizedBox(
                 height: 30.0,
               ),
-              Text('What in following is accurate about Angular?',
+              Text(widget.quiz['long'],
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,

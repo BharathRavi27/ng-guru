@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "503434468681",
+    "firebase_url": "https://ng-guru.firebaseio.com",
+    "project_id": "ng-guru",
+    "storage_bucket": "ng-guru.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503434468681:android:30f3c1d803b3ecc59bce98",
+        "android_client_info": {
+          "package_name": "com.example.angular_guru"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503434468681-9mat23lnq9eh56850gbg77rpobfn3akj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqMGRK5PUs5Ahr5fStqUuQwOR_jNlDdK0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503434468681-9mat23lnq9eh56850gbg77rpobfn3akj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

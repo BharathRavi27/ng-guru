@@ -4,24 +4,25 @@ import 'package:angular_guru/services/auth_service.dart';
 import 'package:angular_guru/shared/loading.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   final Function toggleView;
-  LoginPage({this.toggleView});
+  RegisterPage({this.toggleView});
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final AuthService _auth = AuthService();
+
+  final _formkey = GlobalKey<FormState>();
 
   bool loading = false;
 
+  // text field state
   String email = '';
   String password = '';
   String error = '';
-
-  final _formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                         FadeAnimation(
                             1,
                             Text(
-                              "ng-login",
+                              "ng-register",
                               style:
                                   TextStyle(color: Colors.white, fontSize: 40),
                             )),
@@ -113,9 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                                                 ? 'Enter an E-mail'
                                                 : null,
                                             onChanged: (val) {
-                                              setState(() {
-                                                email = val;
-                                              });
+                                              setState(() => email = val);
                                             },
                                             decoration: InputDecoration(
                                                 hintText:
@@ -133,14 +132,11 @@ class _LoginPageState extends State<LoginPage> {
                                                       color:
                                                           Colors.grey[200]))),
                                           child: TextFormField(
-                                            obscureText: true,
                                             validator: (val) => val.length < 6
                                                 ? 'Enter atleast 6 charectors'
                                                 : null,
                                             onChanged: (val) {
-                                              setState(() {
-                                                password = val;
-                                              });
+                                              setState(() => password = val);
                                             },
                                             decoration: InputDecoration(
                                                 hintText: "Password",
@@ -180,15 +176,17 @@ class _LoginPageState extends State<LoginPage> {
                                           loading = true;
                                         });
                                         dynamic result = await _auth
-                                            .signInWithEmailAndPassword(
+                                            .registerWithEmailAndPassword(
                                                 email, password);
                                         if (result == null) {
+                                          print("Errorr!!!");
                                           setState(() {
                                             error = 'Error!!';
                                             loading = false;
                                           });
                                         }
                                       } else {}
+
                                       // Navigator.push(
                                       //     context,
                                       //     MaterialPageRoute(
@@ -196,7 +194,7 @@ class _LoginPageState extends State<LoginPage> {
                                     },
                                     child: Center(
                                       child: Text(
-                                        "Login",
+                                        "Register",
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold),
@@ -205,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                 )),
                             SizedBox(
-                              height: 20,
+                              height: 50,
                             ),
                             FadeAnimation(
                                 1.7,
@@ -230,11 +228,10 @@ class _LoginPageState extends State<LoginPage> {
                                         child: Center(
                                           child: GestureDetector(
                                             onTap: () {
-                                              print("togglee to register");
                                               widget.toggleView();
                                             },
                                             child: Text(
-                                              "Register",
+                                              "login",
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.bold),
