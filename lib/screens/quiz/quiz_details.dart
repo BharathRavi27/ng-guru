@@ -20,7 +20,7 @@ class _QuizDetailsState extends State<QuizDetails> {
               SizedBox(
                 height: 30.0,
               ),
-              Text(widget.quiz['long'],
+              Text(widget.quiz.long,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,
